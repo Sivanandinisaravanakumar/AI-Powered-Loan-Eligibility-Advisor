@@ -349,4 +349,22 @@ Provide your response in a structured and actionable format to help me take the 
                             else:
                                 prediction = 'Not eligible for loan'
                                 st.markdown("### ☠️ Danger! Your loan application has been **rejected**.")
-                            
+                            #list that will contain message parts to send to the chat bot 
+                            response_part =[genai.protos.Part(function_response=genai.protos.FunctionResponse(name= function_name,response={"result":prediction}))] 
+                            response=chat.send_message(response_part)
+                            st.write(response.text)
+
+                        except Exception as e:
+                            st.error(f"Error:{str(e)}")
+                            st.session_state.messages.append({"role":"assistant","content":f"Error: {str(e)}"})
+                            st.stop()
+            
+        except Exception as e:
+            st.error(f"Error processing result:{str(e)}")
+
+    if __name__=="__main__":
+        show_chatbot()      
+
+                        
+
+                    
