@@ -54,7 +54,8 @@ def about_us_page():
         2. **Data Cleaning**: Handled missing values, outliers, and transformed categorical data to ensure compatibility with machine learning algorithms.
         3. **Model Selection**: Experimented with various machine learning algorithms such as **Logistic Regression**, **Random Forest**, and **XGBoost** to find the best-performing model.
         4. **Model Training & Optimization**: Trained the model on historical data, fine-tuned hyperparameters, and evaluated performance metrics like **accuracy**, **precision**, and **recall**.
-        5. **Deployment & Testing**: Deployed the trained model into the Streamlit application, tested the prediction system with real user inputs, and optimized its performance.
+        5. **Deployment & Testing**: Deployed 
+        the trained model into the Streamlit application, tested the prediction system with real user inputs, and optimized its performance.
 
         This project has provided me with hands-on experience in **data preprocessing**, **model training**, and **AI deployment**, which are essential skills for any AI professional.
     """)
@@ -102,7 +103,7 @@ def prediction_page():
         totalincomelog = np.log(ApplicantIncome + CoapplicantIncome)
         LoanAmountlog = np.log(LoanAmount)
         Loan_Amount_Termlog = np.log(Loan_Amount_Term)
-        if credit < 1000 and credit >= 800:
+        if credit <= 1000 and credit >= 800:
             credit = 1
         else :
             credit = 0
@@ -159,8 +160,8 @@ def show_chatbot_page():
 def footer():
     st.markdown("---")
     st.markdown("### 🌐 Connect with us")
-    st.markdown("[LinkedIn]()")
-    st.markdown("[GitHub]()")
+    st.markdown("[LinkedIn](https://www.linkedin.com/in/sivanandini-saravanakumar-313287259/)")
+    st.markdown("[GitHub](https://github.com/Sivanandinisaravanakumar )")
     st.markdown("📧 Email: sivanandini.sk@gmail.com")
 
 # Sidebar Layout Design Enhancement
@@ -184,8 +185,3 @@ def sidebar_layout():
 
 # Set initial page state if not defined
 sidebar_layout()
-
-
-
-
-    
