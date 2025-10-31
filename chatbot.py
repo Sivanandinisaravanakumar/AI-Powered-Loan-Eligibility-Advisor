@@ -49,7 +49,7 @@ def preprocess_data(gender, married, dependents, education, employed, credit, ar
         totalincomelog = np.log(float(ApplicantIncome) + float(CoapplicantIncome))
         LoanAmountlog = np.log(float(LoanAmount))
         Loan_Amount_Termlog = np.log(float(Loan_Amount_Term))
-        if float(credit) <= 1000 and float(credit) >= 800:
+        if float(credit) >= 800 and float(credit) <= 1000:
             credit = 1
         else:
             credit = 0
@@ -82,7 +82,7 @@ def show_chatbot():
         "What is your monthly applicant income?",
         "What is your monthly co-applicant income?",
         "What is the loan amount you are requesting?",
-        "What is the loan term in months?",
+        "What is the loan term in days?",
         "What is your credit history score? (300-850)",
         "What is the area ? (Urban/Semiurban/Rural)"
     ]
@@ -364,3 +364,7 @@ Provide your response in a structured and actionable format to help me take the 
 
     if __name__=="__main__":
         show_chatbot()      
+
+                        
+
+                    
