@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Loan Eligibility Advisor</title>
+        <style>
+            body {font-family: Arial; background: #eef3f7; text-align: center; padding: 40px;}
+            form {background: #fff;padding: 25px 40px;display: inline-block;border-radius: 10px;box-shadow: 0 4px 10px rgba(0,0,0,0.1);} 
+            input, select {padding: 10px;margin: 10px;width: 220px;border-radius: 5px;border: 1px solid #ccc} 
+            button {padding: 10px 20px; background: #007bff;color: white; border: none;border-radius: 6px;cursor: pointer;font-size: 16px;}
+            button:hover {background: #0056b3;}
+            #creditValue{font-weight: bold;color: #333;}
+        </style>
+    </head>
+    <body>
+        <h1>Loan Eligibility Advisor</h1>
+        <form action="/predict" method="post" onsumit="convertCreditValue()">
+            <select name="gender" required>
+                <option value="">Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select><br>
+            <select name="married" required>
+                <option value="">Married</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+             <select name="dependents" required>
+                <option value="">Dependents</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3+">3+</option>  
+            </select><br>
+            <select name="education" required>
+                <option value="">Education</option>
+                <option value="Graduate">Graduate</option>
+                <option value="Not Graduate">Not Graduate</option> 
+            </select><br>
+            <select name="employed" required>
+                <option value="">Self Employed</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select><br>
+            <select name="dependents" required>
+                <option value="">Dependents</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select><br>
+            <input type="number" name="ApplicantIncome" placeholder="Applicant Income" required><br>
+            <input type="number" name="CoapplicantIncome" placeholder="Coapplicant Income" required><br>
+            <input type="number" name="LoanAmount" placeholder="Loan Amount" required><br>
+            <input type="number" name="LoanAmountTerm" placeholder="LoanAmount Term(days)" required><br>
+            <label for="creditSlider">Credit SCore (0 - 1000):</label><br>
+            <input type="range" id="creditSlider" name="creditSlider" min="0" max="1000" value="500" oninput="updateCreditValue(this.value)">
+            <p>Credit Score:<span id="creditValue">500</span></p>
+            <input type="hidden" id="credit" name="credit" value="0">
+            <select name="area" required>
+                <option value="">Property</option>
+                <option value="Rural">Rural</option>
+                <option value="Semiurbran">Semiurban</option>
+                <option value="Urban">Urban</option>
+            </select><br>
+            <button type="submit">Check Eligibility</button>
+            </form>
+            
+
+        </form>
+    </body>
+</html>
