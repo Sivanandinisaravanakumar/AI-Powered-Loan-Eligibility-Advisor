@@ -63,8 +63,16 @@
             </select><br>
             <button type="submit">Check Eligibility</button>
             </form>
-            
-
-        </form>
-    </body>
+            <script>
+        function updateCreditValue(value) {
+            document.getElementById("creditValue").textContent = value;
+        }
+        function convertCreditValue(){
+            const creditScore = parseInt(document.getElementById('creditSlider').value);
+            const creditBinary =(creditScore >= 850 && creditScore <= 1000 ) ? 1 : 0;
+            document.getElementById('credit').value = creditBinary;
+        }
+    </script>
+    
+</body>
 </html>
