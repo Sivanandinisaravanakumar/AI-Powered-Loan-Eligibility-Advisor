@@ -4,7 +4,7 @@ import pickle
 import numpy as np
 
 app =Flask(__name__)
-model = pickle.load(open("C:\\Users\\cheta\\Desktop\\AI - Power Loan Eligibility advisor\\model.pkl",'rb'))
+model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl",'rb'))
 
 @app.route('/')
 def home():
