@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Loan Prediction System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffda79;
+            transform: scale(1.1);
+        }
+
+        .login-container {
+            width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #283e51;
+            margin-bottom: 25px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+            font-size: 15px;
+        }
+        input[type="text"]:focus, input[type="password"]:focus {
+            border-color: #4b79a1;
+            box-shadow: 0 0 6px rgba(75,121,161,0.5);
+        }
+
+        button {
+            width: 100%;
+            background: #4b79a1;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background: #355c7d;
+            transform: scale(1.02);
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #4b79a1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>🔐 User Login</h2>
+    <form action="/login" method="POST">
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Login</button>
+    </form>
+
+
+</div>
+
+</body>
+</html>

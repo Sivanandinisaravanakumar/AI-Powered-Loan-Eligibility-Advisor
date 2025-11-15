@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI-Powered Loan Eligibility Advisor</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #4b79a1, #283e51);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .navbar {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 15px 0;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .navbar a {
+      color: #fff;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .navbar a:hover {
+      color: #ffde59;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 60px 20px;
+      color: white;
+      animation: fadeIn 1.5s ease;
+    }
+
+    .hero img {
+      width: 350px;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      margin-bottom: 25px;
+      transition: transform 0.4s ease;
+    }
+
+    .hero img:hover {
+      transform: scale(1.05);
+    }
+
+    .hero h1 {
+      font-size: 2.2em;
+      margin-bottom: 10px;
+      text-shadow: 0 3px 8px rgba(0,0,0,0.2);
+    }
+
+    .hero p {
+      font-size: 1.1em;
+      opacity: 0.9;
+    }
+
+    .btn {
+      padding: 14px 30px;
+      background: #ffde59;
+      color: #333;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 25px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #ffd633;
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(255,255,255,0.3);
+    }
+
+    /* Features Section */
+    .features {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 40px auto;
+      width: 85%;
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(15px);
+      border-radius: 15px;
+      color: white;
+      width: 300px;
+      padding: 25px;
+      text-align: center;
+      transition: all 0.4s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .feature-card h3 {
+      margin-bottom: 10px;
+      color: #ffde59;
+    }
+
+    /* About Section */
+    .details {
+      background: white;
+      margin: 60px auto;
+      padding: 40px;
+      width: 75%;
+      border-radius: 12px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+      line-height: 1.8;
+      text-align: left;
+      color: #333;
+    }
+
+    .details h2 {
+      color: #283e51;
+      margin-bottom: 10px;
+    }
+
+    .details p {
+      margin-bottom: 20px;
+      font-size: 1.05em;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 0.9em;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/predictpage">Prediction</a>
+    <a href="/chatbot">Chatbot</a>
+    <a href="/login">Login</a>
+
+  </div>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>AI-Powered Loan Eligibility Advisor</h1>
+    <p>Empowering smarter financial decisions with artificial intelligence</p>
+    <a href="/predictpage" class="btn">Start Prediction</a>
+  </div>
+
+  <!-- Features -->
+  <div class="features">
+    <div class="feature-card">
+      <h3>⚡ Instant Prediction</h3>
+      <p>Get instant results on your loan eligibility using AI-based insights.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🤖 Smart Chatbot</h3>
+      <p>Interact with our intelligent chatbot to get personalized assistance.</p>
+    </div>
+    <div class="feature-card">
+      <h3>🔒 Secure Analysis</h3>
+      <p>Your information is processed safely and confidentially every time.</p>
+    </div>
+  </div>
+
+  <!-- About / Details -->
+  <div class="details">
+    <h2>📘 About the Project</h2>
+    <p>
+      The <b>Loan Eligibility Advisor</b> leverages machine learning models to predict whether a loan application is likely to be approved or rejected.
+      It was built as part of my <b>AI Internship Project at Infosys Springboard</b>.
+    </p>
+
+    <p>
+      The system uses algorithms like <b>Logistic Regression</b> and <b>Decision Trees</b> to make predictions based on parameters like income, credit score, education, and more.
+      Users can either fill the prediction form or chat with our AI chatbot for a conversational experience.
+    </p>
+
+    <h2>🌟 Objective</h2>
+    <p>
+      To make financial assessment smarter, faster, and accessible through AI.  
+      This project bridges technology and trust — helping users understand their eligibility effortlessly.
+    </p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Loan Eligibility Advisor | Designed by Sivanandini Saravanakumar 💙
+  </footer>
+
+</body>
+</html>

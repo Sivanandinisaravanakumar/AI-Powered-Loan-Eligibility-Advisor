@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loan Chatbot</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #4b79a1, #283e51);
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      color: white;
+    }
+    .navbar {
+      background: rgba(255,255,255,0.15);
+      text-align: center;
+      padding: 15px;
+      backdrop-filter: blur(10px);
+    }
+    .navbar a {
+      color: #fff; margin: 0 15px; text-decoration: none; font-weight: 600;
+    }
+    .navbar a:hover {color: #ffde59;}
+
+    .container {
+      width: 400px;
+      margin: 60px auto;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    h2 {text-align: center; margin-bottom: 15px; color: #ffde59;}
+    #chatbox {
+      height: 350px;
+      overflow-y: auto;
+      padding: 10px;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+    }
+    .msg {
+      margin: 8px 0;
+      padding: 10px;
+      border-radius: 10px;
+      max-width: 85%;
+      line-height: 1.4;
+      animation: fadeIn 0.4s ease;
+    }
+    .bot { background: #d7ebff; color: #000; align-self: flex-start; }
+    .user { background: #d8ffd9; color: #000; margin-left: auto; text-align: right; }
+    #inputBox {
+      width: 100%;
+      padding: 12px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 8px;
+      outline: none;
+    }
+    @keyframes fadeIn { from {opacity: 0;} to {opacity: 1;} }
+  </style>
+</head>
+<body>
+    <!-- Navigation -->
+  <div class="navbar">
+    <a href="/">Home</a>
+    <a href="/about">About</a>
+    <a href="/predictpage">Prediction</a>
+    <a href="/chatbot">Chatbot</a>
+    <a href="/login">Login</a>
+
+  </div>
+
+  <div class="container">
+    <h2>🤖 Loan Assistant Chatbot</h2>
+    <div id="chatbox"></div>
+    <input type="text" id="inputBox" placeholder="Type your answer...">
+  </div>
+  <script>
+    let step = 0;
+    let answers = {};
+
+    const chatbox = document.getElementById("chatbox");
+    const inputBox = document.getElementById("inputBox");
+
+    const questions = [
+      "What is your Gender? (Male/Female)",
+      "Are you Married? (Yes/No)",
+      "Number of Dependents? (0/1/2/3+)",
+      "Education (Graduate/Not Graduate)",
+      "Self Employed? (Yes/No)",
+      "Applicant Income?",
+      "Coapplicant Income?",
+      "Loan Amount?",
+      "Loan Amount Term?",
+      "Credit Score? (300-900)",
+      "Property Area? (Urban/Semiurban/Rural)"
+    ];
+
+    const keys = [
+      "gender", "married", "dependents", "education", "employed",
+      "ApplicantIncome", "CoapplicantIncome", "LoanAmount", "Loan_Amount_Term", "credit", "area"
+    ];
+
+    botMessage("Hello! I’ll help you check your loan eligibility 😄");
+    setTimeout(() => botMessage(questions[step]), 800);
+
+    inputBox.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        const userText = inputBox.value.trim();
+        if (userText === "") return;
+        userMessage(userText);
+
+        answers[keys[step]] = userText;
+        inputBox.value = "";
+        step++;
+
+        if (step < questions.length) {
+          setTimeout(() => botMessage(questions[step]), 600);
+        } else {
+          botMessage("✅ Calculating your loan eligibility...");
+          sendFormToFlask();
+        }
+      }
+    });
+
+    function userMessage(text) {
+      chatbox.innerHTML += `<div class="msg user">${text}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function botMessage(text) {
+      chatbox.innerHTML += `<div class="msg bot">${text}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    // Send data as FormData to Flask's /predict route
+    function sendFormToFlask() {
+      const formData = new FormData();
+      for (const key in answers) {
+        formData.append(key, answers[key]);
+      }
+
+      fetch("/predict", { method: "POST", body: formData })
+        .then(response => response.text())
+        .then(html => {
+          // Display the rendered result page content directly in the chatbot
+          if (html.includes("loan status is Yes")) {
+            botMessage("🎉 You are ELIGIBLE for the Loan!");
+          } else if (html.includes("loan status is No")) {
+            botMessage("❌ You are NOT Eligible for the Loan.");
+          } else {
+            botMessage("⚠️ Something went wrong. Please try again!");
+          }
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          botMessage("⚠️ Server Error.");
+        });
+    }
+  </script>
+</body>
+</html>

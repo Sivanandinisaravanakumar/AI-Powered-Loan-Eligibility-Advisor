@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Prediction Result</title>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            text-align: center;
+            color: white;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(255,255,255,0.15);
+            text-align: center;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 🔹 NAVIGATION LINKS NORMAL WHITE */
+        .navbar a {
+            color: #ffffff !important;   /* pure white */
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 8px 14px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        /* 🔹 Hover turns yellow */
+        .navbar a:hover {
+            color: #ffde59 !important;
+        }
+
+        /* Result Box */
+        .result-box {
+            margin: 80px auto;
+            width: 420px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(12px);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            color: #e4e3dfff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 22px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background: #ffde59;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #ffd633;
+            transform: translateY(-2px);
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/predictpage">Prediction</a>
+        <a href="/chatbot">Chatbot</a>
+        <a href="/login">Login</a>
+    </div>
+
+    <div class="result-box">
+        <h1>Loan Eligibility Result</h1>
+        <p>{{ prediction_text }}</p>
+
+        <a href="/">Go Back</a>
+    </div>
+
+</body>
+</html>
