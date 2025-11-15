@@ -99,13 +99,17 @@
 
 <div class="login-container">
     <h2>🔐 User Login</h2>
+    
     <form action="/login" method="POST">
         <input type="text" name="username" placeholder="Enter Username" required>
         <input type="password" name="password" placeholder="Enter Password" required>
         <button type="submit">Login</button>
+
+        <!-- Error message block added -->
+        {% if error %}
+        <p style="color:red; text-align:center; margin-top:10px;">{{ error }}</p>
+        {% endif %}
     </form>
-
-
 </div>
 
 </body>

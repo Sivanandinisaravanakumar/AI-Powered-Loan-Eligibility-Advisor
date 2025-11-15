@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 import numpy as np
 import pickle
 
@@ -23,6 +23,21 @@ import pickle
 app = Flask(__name__)
 
 model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
+
+# Login Page
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get("username")
+        password = request.form.get("password")
+
+        # Hardcoded credentials (you can change)
+        if username == "admin" and password == "54321@":
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html", error="Invalid credentials. Please try again.")
+    
+    return render_template("login.html")
 
 # Home Page
 @app.route('/')
@@ -129,20 +144,5 @@ def about():
 def chatbot():
     return render_template("chatbot.html")
 
-#Login Page
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if request.method == 'POST':
-        username = request.form['username']
-        password = request.form['password']
-
-        # ✅ Replace with your actual authentication logic
-        if username == "admin" and password == "1234":
-            return render_template("home.html")  # redirect to home or dashboard
-        else:
-            return render_template("login.html", error="Invalid credentials. Please try again.")
-    return render_template("login.html")
-
 if __name__ == '__main__':
     app.run(debug=True)
-
