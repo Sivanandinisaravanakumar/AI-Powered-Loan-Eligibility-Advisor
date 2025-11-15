@@ -32,7 +32,7 @@ def login():
         password = request.form.get("password")
 
         # Hardcoded credentials (you can change)
-        if username == "admin" and password == "54321@":
+        if username == "admin" and password == "54321":
             return redirect(url_for('home'))
         else:
             return render_template("login.html", error="Invalid credentials. Please try again.")
