@@ -6,24 +6,6 @@ app = Flask(__name__)
 
 model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
 
-# Home Page
-@app.route('/')
-def home():
-    return render_template("home.html")
-
-# Predict Page (form page)
-@app.route('/predictpage')
-def predictpage():
-    return render_template("index.html")
-
-from flask import Flask, render_template, request
-import numpy as np
-import pickle
-
-app = Flask(__name__)
-
-model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
-
 # Login Page
 @app.route('/login', methods=['GET', 'POST'])
 def login():
