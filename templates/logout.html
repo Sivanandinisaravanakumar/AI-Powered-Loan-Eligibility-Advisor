@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Logout - Loan Prediction System</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #4b79a1, #283e51);
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background: rgba(0, 0, 0, 0.25);
+            padding: 15px;
+            text-align: center;
+        }
+        .navbar a {
+            color: white;
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .navbar a:hover {
+            color: #ffda79;
+            transform: scale(1.1);
+        }
+
+        .logout-container {
+            width: 400px;
+            margin: 100px auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h2 {
+            text-align: center;
+            color: #283e51;
+            margin-bottom: 25px;
+        }
+
+        .message {
+            text-align: center;
+            color: #283e51;
+            margin-bottom: 25px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .logout-btn {
+            width: 100%;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 15px;
+        }
+        .logout-btn:hover {
+            background: #c0392b;
+            transform: scale(1.02);
+        }
+
+        .cancel-btn {
+            width: 100%;
+            background: #95a5a6;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .cancel-btn:hover {
+            background: #7f8c8d;
+            transform: scale(1.02);
+        }
+
+        .links {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .links a {
+            color: #4b79a1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .links a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="logout-container">
+    <h2>🔒 Secure Logout</h2>
+    
+    <div class="message">
+        <p>Are you sure you want to log out?</p>
+        <p>Your session will be terminated and you'll need to log in again to access the loan prediction system.</p>
+    </div>
+    
+    <form action="/logout" method="POST">
+        <button type="submit" class="logout-btn">Yes, Log Out</button>
+    </form>
+    
+    <!-- Fixed: Changed from /dashboard to / (home page) -->
+    <form action="/" method="GET">
+        <button type="submit" class="cancel-btn">Cancel</button>
+    </form>
+</div>
+
+</body>
+</html>

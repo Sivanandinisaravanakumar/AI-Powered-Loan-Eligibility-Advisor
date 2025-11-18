@@ -1,10 +1,24 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 import numpy as np
 import pickle
 
 app = Flask(__name__)
+app.secret_key = 'your_super_secret_key_here'  # 🔐 Change this!
 
+# Load your model
 model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
+
+def login_required(f):
+    """
+    Decorator to require login for routes
+    """
+    from functools import wraps
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'username' not in session:
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 # Login Page
 @app.route('/login', methods=['GET', 'POST'])
@@ -15,11 +29,19 @@ def login():
 
         # Hardcoded credentials (you can change)
         if username == "admin" and password == "54321":
+            session['username'] = username
+            session['logged_in'] = True
             return redirect(url_for('home'))
         else:
             return render_template("login.html", error="Invalid credentials. Please try again.")
     
     return render_template("login.html")
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    """Logout route - clears session and redirects to login"""
+    session.clear()
+    return redirect(url_for('login'))
 
 # Home Page
 @app.route('/')
