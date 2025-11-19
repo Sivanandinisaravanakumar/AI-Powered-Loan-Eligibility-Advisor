@@ -97,29 +97,40 @@ AI-Powered-Loan-Eligibility-Advisor/
    cd AI-Powered-Loan-Eligibility-Advisor
 
    Install dependencies
-bash
+
 
 
 2. **Install dependencies**
 pip install flask numpy scikit-learn firebase-admin
-Set up Firebase Authentication
+
+
+
+3. **Set up Firebase Authentication**
 Go to Firebase Console
 Create a new project or select existing
 Enable Email/Password sign-in method
 Download serviceAccountKey.json from Project Settings > Service Accounts
 Place it in the project root folder (do NOT commit to GitHub)
-Run the application
-bash
 
 
-1
+
+4. **Run the application**
 python Flask_app.py
-Open your browser and visit:
+
+
+
+5. **Open your browser and visit**
 http://localhost:5000
-Log in with:
+
+
+
+6. **Log in with:**
 Username: admin
 Password: 54321
 (Or register a new account via the "Sign Up" link)
+
+
+
 🧪 How It Works
 User logs in via Firebase authentication.
 Navigates to “Prediction” or “Chatbot”.
@@ -127,15 +138,20 @@ Prediction Form: Enters financial details → model predicts Yes/No.
 Chatbot: Asks 11 questions → returns personalized eligibility result + tailored advice.
 For eligible applicants: Gets document checklist and timeline.
 For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
+
+
+
 📊 Sample Output
 ✅ Eligible Result:
 🎉 You are ELIGIBLE for the Loan!
-✅ Next Steps: 
+Next Steps: 
 
 Prepare ID, Address, and Income Proof
 Submit via bank portal
 Estimated disbursement: 10–15 business days
 💡 Tip: Maintain credit score above 750 during this process.
+
+
 ❌ Not Eligible Result:
 ❌ You are NOT eligible for the loan.
 🔧 Improvement Plan: 
@@ -144,22 +160,18 @@ Increase combined income to ₹35,000+
 Improve credit score from 620 to 700+ by paying bills on time
 Reduce loan amount to ₹4.5L or below
 💡 Try: Apply for a personal loan or consider a co-applicant
+
+
+
 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details.
+
+
 
 👥 Author
 Sivanandini Saravanakumar
 AI Intern | Infosys Springboard
 📧 sivanandini.sk@gmail.com
-🔗 LinkedIn | GitHub
-
-💡 Future Enhancements
-Integrate with real bank APIs for document upload
-Add multi-language support
-Deploy on Render/Heroku for public access
-Implement model retraining with user feedback
-Add admin dashboard for loan analytics
-
 
 
 ---
