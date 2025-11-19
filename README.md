@@ -92,11 +92,9 @@ AI-Powered-Loan-Eligibility-Advisor/
 ### Steps
 
 1. **Clone the repository**
-   ```bash
+   
    git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
    cd AI-Powered-Loan-Eligibility-Advisor
-
-   Install dependencies
 
 
 
@@ -121,13 +119,6 @@ python Flask_app.py
 
 5. **Open your browser and visit**
 http://localhost:5000
-
-
-
-6. **Log in with:**
-Username: admin
-Password: 54321
-(Or register a new account via the "Sign Up" link)
 
 
 
