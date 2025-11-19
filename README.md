@@ -79,7 +79,7 @@ AI-Powered-Loan-Eligibility-Advisor/
 ---
 
 
-> 💡 **Note**: `serviceAccountKey.json` is intentionally excluded from version control for security. Developers must generate their own from the Firebase Console.
+> 💡 **Note**: `firebase-adminsdk.json` is intentionally excluded from version control for security. Developers must generate their own from the Firebase Console.
 
 ---
 
