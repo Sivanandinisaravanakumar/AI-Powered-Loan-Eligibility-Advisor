@@ -190,5 +190,4 @@ def chatbot():
     return render_template("chatbot.html")
 
 if __name__ == '__main__':
-    # Make the app accessible via IP address
-    app.run(debug=True, host='0.0.0.0') # Add host='0.0.0.0' to access via IP
+    app.run(debug=True)
