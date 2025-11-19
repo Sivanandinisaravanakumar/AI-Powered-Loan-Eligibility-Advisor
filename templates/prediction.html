@@ -19,22 +19,26 @@
             text-align: center;
             padding: 15px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2); /* Optional: Add subtle shadow for depth */
         }
 
-        /* 🔹 NAVIGATION LINKS NORMAL WHITE */
+        /* 🔹 NAVIGATION LINKS - White text, no background */
         .navbar a {
-            color: #ffffff !important;   /* pure white */
+            color: #ffffff;   /* pure white */
             margin: 0 15px;
             text-decoration: none;
             font-weight: 600;
-            padding: 8px 14px;
+            padding: 8px 14px; /* Padding adds some space around the text */
             border-radius: 6px;
-            transition: 0.3s;
+            transition: all 0.3s ease; /* Smooth transition for all properties */
+            display: inline-block; /* Ensures padding is applied correctly */
         }
 
-        /* 🔹 Hover turns yellow */
+        /* 🔹 Hover Effect - Changes color to yellow */
         .navbar a:hover {
-            color: #ffde59 !important;
+            color: #ffde59;   /* yellow on hover only */
+            background: transparent; /* Ensure no background appears on hover */
+            transform: scale(1.05); /* Optional: Slight scale effect on hover */
         }
 
         /* Result Box */
@@ -59,7 +63,7 @@
             color: #fff;
         }
 
-        a {
+        .go-back-link {
             display: inline-block;
             margin-top: 20px;
             text-decoration: none;
@@ -71,7 +75,7 @@
             transition: 0.3s;
         }
 
-        a:hover {
+        .go-back-link:hover {
             background: #ffd633;
             transform: translateY(-2px);
         }
@@ -93,7 +97,7 @@
         <h1>Loan Eligibility Result</h1>
         <p>{{ prediction_text }}</p>
 
-        <a href="/">Go Back</a>
+        <a href="/" class="go-back-link">Go Back</a> <!-- Added class for specific styling -->
     </div>
 
 </body>

@@ -3,10 +3,17 @@ import numpy as np
 import pickle
 
 app = Flask(__name__)
-app.secret_key = 'your_super_secret_key_here'  # 🔐 Change this!
+app.secret_key = 'd4eb319ea84fecef9f8e3bb6fc11a2852a5f26eea6fe569a3042355c67676421'
 
 # Load your model
 model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
+
+# --- USER MANAGEMENT ---
+# Dictionary to store users (username -> password)
+# In a real app, use a database and hash passwords!
+USERS = {
+    'admin': '54321' #  existing admin user
+}
 
 def login_required(f):
     """
@@ -27,8 +34,8 @@ def login():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        # Hardcoded credentials (you can change)
-        if username == "admin" and password == "54321":
+        # Check if user exists and password matches
+        if username in USERS and USERS[username] == password:
             session['username'] = username
             session['logged_in'] = True
             return redirect(url_for('home'))
@@ -37,23 +44,57 @@ def login():
     
     return render_template("login.html")
 
+# Register Page
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get("username")
+        password = request.form.get("password")
+        confirm_password = request.form.get("confirm_password")
+
+        # Validation checks
+        if not username or not password:
+            return render_template("register.html", error="Username and password are required.")
+        
+        if password != confirm_password:
+            return render_template("register.html", error="Passwords do not match.")
+        
+        if len(password) < 6:
+            return render_template("register.html", error="Password must be at least 6 characters long.")
+        
+        if username in USERS:
+            return render_template("register.html", error="Username already exists. Please choose another one.")
+        
+        # Add user to the dictionary
+        USERS[username] = password
+        # You could also add a success message here
+        return render_template("register.html", success="Registration successful! You can now log in.")
+    
+    # If GET request, just show the registration form
+    return render_template("register.html")
+
+
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     """Logout route - clears session and redirects to login"""
     session.clear()
     return redirect(url_for('login'))
 
-# Home Page
+# Home Page - Protected
 @app.route('/')
+@login_required
 def home():
     return render_template("home.html")
 
-# Predict Page (form page)
+# Predict Page (form page) - Protected
 @app.route('/predictpage')
+@login_required
 def predictpage():
     return render_template("index.html")
 
-@app.route('/predict', methods = ["GET","POST"]) #get - typically used to show a blank prediction page or result page. #post-used to submit the form with input values that the server uses to make a prediction.
+# Predict Route (handles form submission and chatbot API call) - Protected
+@app.route('/predict', methods = ["GET","POST"])
+@login_required
 def predict():
     if request.method == 'POST':
         gender = request.form['gender']
@@ -134,19 +175,29 @@ def predict():
             prediction = "No"
         else:
             prediction = "Yes"
-        return render_template("prediction.html",prediction_text="loan status is {}".format(prediction))
+        # Check if the request is likely coming from the chatbot (e.g., AJAX)
+        if request.headers.get('Accept') == 'application/json' or request.is_json:
+            # Return JSON for chatbot
+            return {"status": "success", "result": prediction, "message": f"Loan status is {prediction}"}
+        else:
+            # Return HTML for the form submission
+            return render_template("prediction.html", prediction_text="loan status is {}".format(prediction))
     else:
-        return render_template("prediction.html")
+        # GET request - show the form page (prediction.html or index.html)
+        return render_template("prediction.html") # Or index.html if that's your form
     
-# About Page
+# About Page - Protected
 @app.route('/about')
+@login_required
 def about():
     return render_template("about.html")
 
-# Chatbot Page
+# Chatbot Page - Protected
 @app.route('/chatbot')
+@login_required
 def chatbot():
     return render_template("chatbot.html")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Make the app accessible via IP address
+    app.run(debug=True, host='0.0.0.0') # Add host='0.0.0.0' to access via IP
