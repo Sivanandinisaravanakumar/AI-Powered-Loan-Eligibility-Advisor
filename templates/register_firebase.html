@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Loan Prediction System</title>
+  <style>
+    /* Reuse the styles from your login_firebase.html or login.html for consistency */
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: linear-gradient(135deg, #4b79a1, #283e51);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow-x: hidden;
+      position: relative;
+      padding: 20px;
+    }
+
+    /* Subtle animated gradient background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+      animation: gradientShift 8s ease infinite;
+      z-index: -1;
+    }
+
+    @keyframes gradientShift {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .register-container {
+      width: 400px;
+      background: white;
+      padding: 50px 40px;
+      border-radius: 16px;
+      box-shadow: 0 14px 40px rgba(0,0,0,0.2);
+      text-align: center;
+      animation: fadeInUp 0.9s ease-out;
+      transform: translateY(0);
+      backdrop-filter: blur(10px);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .user-icon {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 25px;
+      color: #4b79a1;
+      transition: all 0.4s ease;
+      animation: userPulse 2s infinite alternate;
+    }
+
+    @keyframes userPulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.05); }
+    }
+
+    h2 {
+      color: #283e51;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 1.8em;
+      letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+      color: #777;
+      font-size: 1em;
+      margin-bottom: 35px;
+      font-weight: 500;
+    }
+
+    /* --- Input Fields Styling (Unified for all fields) --- */
+    .input-field {
+      width: 100%; /* Ensure full width */
+      padding: 16px; /* Consistent padding */
+      margin: 14px 0;
+      border: 1px solid #eee;
+      border-radius: 8px;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.3s ease;
+      font-family: inherit;
+      background: #fafafa;
+      color: #333; /* Ensure readable text color */
+    }
+
+    .input-field:focus {
+      border-color: #4b79a1;
+      box-shadow: 0 0 0 3px rgba(75, 121, 161, 0.2);
+      transform: translateY(-2px);
+      background: white;
+    }
+
+    .input-field::placeholder {
+      color: #aaa;
+      transition: opacity 0.3s ease;
+    }
+
+    .input-field:focus::placeholder {
+      opacity: 0;
+    }
+
+    button {
+      width: 100%;
+      background: #4b79a1;
+      color: white;
+      border: none;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 15px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    button:hover {
+      background: #355c7d;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(75, 121, 161, 0.3);
+    }
+
+    button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: 0.6s;
+    }
+
+    button:hover::before {
+      left: 100%;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #888;
+      font-size: 14px;
+      user-select: none;
+      transition: color 0.3s;
+      font-weight: bold;
+    }
+
+    .password-toggle:hover {
+      color: #4b79a1;
+    }
+
+    .error {
+      color: #e74c3c;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .success {
+      color: #27ae60;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .links {
+      margin-top: 25px;
+      font-size: 14px;
+      color: #777;
+    }
+
+    .links a {
+      color: #4b79a1;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .links a:hover {
+      color: #ffda79;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .register-container {
+        width: 90%;
+        padding: 40px 25px;
+      }
+      h2 {
+        font-size: 1.6em;
+      }
+      .subtitle {
+        font-size: 0.9em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="register-container">
+  <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+
+  <h2>📝 Create Account</h2>
+  <p class="subtitle">Join the AI Loan Prediction System</p>
+
+  <form id="firebase-register-form">
+    <!-- Email Input Field - Apply the same class -->
+    <input type="email" id="email" class="input-field" placeholder="Email Address" required>
+    <!-- Password Input Field - Apply the same class -->
+    <input type="password" id="password" class="input-field" placeholder="Create a Password" required>
+    <!-- Confirm Password Input Field - Apply the same class -->
+    <input type="password" id="confirm-password" class="input-field" placeholder="Confirm Password" required>
+    <button type="submit">Register</button>
+  </form>
+
+  <div id="message-container"></div> <!-- Container for success/error messages -->
+
+  <div class="links">
+    <p>Already have an account? <a href="/login">Sign In</a></p>
+  </div>
+</div>
+
+<!-- Firebase App (SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+<!-- Firebase Authentication (SDK) -->
+<script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+<script>
+  // 1. REPLACE THIS CONFIGURATION WITH YOUR FIREBASE PROJECT'S CONFIG
+  const firebaseConfig = {
+    apiKey: "AIzaSyCKbnOovchRncP14J6u4EYKiZWFzDLonqc",
+    authDomain: "ai-loan-advisor.firebaseapp.com",
+    projectId: "ai-loan-advisor", // Replace with your actual project ID
+    // storageBucket: "your-project-id.appspot.com", // Not needed for auth
+    // messagingSenderId: "123456789", // Not needed for auth
+    appId: "1:245376627190:web:98d68684da37c0d0fa17d7"
+  };
+
+  // 2. Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const auth = firebase.auth();
+
+  // 3. Get DOM elements
+  const registerForm = document.getElementById('firebase-register-form');
+  const messageContainer = document.getElementById('message-container');
+
+  // 4. Handle form submission
+  registerForm.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevent default form submission
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Clear previous messages
+    messageContainer.innerHTML = '';
+
+    // Validation checks
+    if (password !== confirmPassword) {
+        messageContainer.innerHTML = '<p class="error">Passwords do not match.</p>';
+        return;
+    }
+
+    if (password.length < 6) {
+        messageContainer.innerHTML = '<p class="error">Password must be at least 6 characters long.</p>';
+        return;
+    }
+
+    // 5. Call Firebase to create the user
+    auth.createUserWithEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // User registered successfully
+        const user = userCredential.user;
+        console.log('Registered user:', user);
+
+        // Show success message
+        messageContainer.innerHTML = '<p class="success">Registration successful! Please log in.</p>';
+
+        // Clear the form (optional)
+        registerForm.reset();
+
+        // Optional: Auto-login after registration (uncomment if desired)
+        /*
+        return user.getIdToken();
+        .then((idToken) => {
+            // Send the ID token to your Flask backend for session management
+            fetch('/firebase-login-callback', { // Use the same callback as login
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id_token: idToken })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    window.location.href = data.redirect_url; // Redirect to home/dashboard
+                } else {
+                    messageContainer.innerHTML = `<p class="error">Login after registration failed: ${data.message}</p>`;
+                }
+            })
+            .catch(error => {
+                console.error('Error sending token to Flask after registration:', error);
+                messageContainer.innerHTML = '<p class="error">Error during login process after registration.</p>';
+            });
+        });
+        */
+
+        // 6. Optionally redirect to login page after a short delay
+        // setTimeout(() => {
+        //   window.location.href = '/login'; // Redirect to login page
+        // }, 2000); // Wait 2 seconds to show success message
+
+      })
+      .catch((error) => {
+        // Handle errors
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.error('Firebase Registration Error:', errorCode, errorMessage);
+
+        // Display error message to the user
+        messageContainer.innerHTML = `<p class="error">${errorMessage}</p>`;
+      });
+  });
+</script>
+
+</body>
+</html>

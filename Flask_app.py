@@ -1,79 +1,70 @@
+import firebase_admin
+from firebase_admin import credentials, auth
+import flask
 from flask import Flask, render_template, request, redirect, url_for, session, flash
 import numpy as np
 import pickle
 
+# Initialize Firebase Admin SDK
+cred = credentials.Certificate("C:\\Users\\sivan\\Downloads\\firebase-adminsdk.json") # Update path
+firebase_admin.initialize_app(cred)
+
 app = Flask(__name__)
 app.secret_key = 'd4eb319ea84fecef9f8e3bb6fc11a2852a5f26eea6fe569a3042355c67676421'
 
-# Load your model
+# Load your model (assuming it's still in the same place)
 model = pickle.load(open("C:\\Users\\sivan\\Downloads\\AI-Powered-Loan-Eligibility-Advisor\\model.pkl", "rb"))
 
-# --- USER MANAGEMENT ---
-# Dictionary to store users (username -> password)
-# In a real app, use a database and hash passwords!
-USERS = {
-    'admin': '54321' #  existing admin user
-}
-
 def login_required(f):
-    """
-    Decorator to require login for routes
-    """
     from functools import wraps
     @wraps(f)
     def decorated_function(*args, **kwargs):
-        if 'username' not in session:
+        # Check if user is logged in via Firebase token in session
+        user_id = session.get('user_id')
+        if not user_id:
+            return redirect(url_for('login'))
+        try:
+            # Verify the user ID stored in session against Firebase
+            user = auth.get_user(user_id)
+        except auth.UserNotFoundError:
+            # If user doesn't exist in Firebase, clear session and redirect to login
+            session.clear()
             return redirect(url_for('login'))
         return f(*args, **kwargs)
     return decorated_function
 
-# Login Page
-@app.route('/login', methods=['GET', 'POST'])
+# Login Page - This will now render a page that handles Firebase login via JS
+@app.route('/login')
 def login():
-    if request.method == 'POST':
-        username = request.form.get("username")
-        password = request.form.get("password")
+    return render_template("login_firebase.html") # You'll create this
 
-        # Check if user exists and password matches
-        if username in USERS and USERS[username] == password:
-            session['username'] = username
-            session['logged_in'] = True
-            return redirect(url_for('home'))
-        else:
-            return render_template("login.html", error="Invalid credentials. Please try again.")
-    
-    return render_template("login.html")
-
-# Register Page
-@app.route('/register', methods=['GET', 'POST'])
+# Register Page - This will now render a page that handles Firebase registration via JS
+@app.route('/register')
 def register():
-    if request.method == 'POST':
-        username = request.form.get("username")
-        password = request.form.get("password")
-        confirm_password = request.form.get("confirm_password")
+    return render_template("register_firebase.html") # You'll create this
 
-        # Validation checks
-        if not username or not password:
-            return render_template("register.html", error="Username and password are required.")
-        
-        if password != confirm_password:
-            return render_template("register.html", error="Passwords do not match.")
-        
-        if len(password) < 6:
-            return render_template("register.html", error="Password must be at least 6 characters long.")
-        
-        if username in USERS:
-            return render_template("register.html", error="Username already exists. Please choose another one.")
-        
-        # Add user to the dictionary
-        USERS[username] = password
-        # You could also add a success message here
-        return render_template("register.html", success="Registration successful! You can now log in.")
-    
-    # If GET request, just show the registration form
-    return render_template("register.html")
+# Callback route to handle successful Firebase login (receives token from frontend JS)
+@app.route('/firebase-login-callback', methods=['POST'])
+def firebase_login_callback():
+    id_token = request.json.get('id_token') # Token received from frontend JS
+    try:
+        # Verify the ID token received from the frontend
+        decoded_claims = auth.verify_id_token(id_token)
+        uid = decoded_claims['uid']
+        # Store user ID in session (you can store other claims if needed)
+        session['user_id'] = uid
+        session['logged_in'] = True
+        # Redirect to home or dashboard after successful login
+        return flask.jsonify({"status": "success", "redirect_url": url_for('home')})
+    except auth.InvalidIdTokenError:
+        # Handle invalid token
+        return flask.jsonify({"status": "error", "message": "Invalid token"}), 401
+    except Exception as e:
+        # Handle other errors
+        print(f"Login error: {e}")
+        return flask.jsonify({"status": "error", "message": "Login failed"}), 500
 
-
+#LOGOUT PAGE
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
     """Logout route - clears session and redirects to login"""
