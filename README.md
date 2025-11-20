@@ -133,6 +133,50 @@ AI-Powered-Loan-Eligibility-Advisor/
    
 ---
 
+### 🧠 Machine Learning Model Info
+
+The ML model (model.pkl) is trained in:
+
+  Eligibility Prediction.ipynb
+
+Steps Performed:
+
+Data cleaning
+
+Handling missing values
+
+Encoding categorical variables
+
+Log-transforming skewed columns
+
+Training Decision Tree model
+
+Saving model with pickle
+
+Used in:
+
+✔ Loan Prediction Form
+
+✔ Smart Chatbot Advisor
+
+### 🏛️ System Architecture
+
+**Chatbot Flow**
+
+ 1. User logs in
+
+ 2. Chatbot asks 11 financial questions
+
+ 3. Flask preprocesses user responses
+
+ 4. model.pkl predicts Eligible / Not Eligible
+
+ 5. Gemini generates explanation
+
+ 6. User receives final recommendation
+
+---
+
 ## 🧪 How It Works
 
    1. User logs in via Firebase authentication.
@@ -184,6 +228,6 @@ Sivanandini Saravanakumar
 AI Intern | Infosys Springboard
 
 Email: sivanandini.sk@gmail.com   |
-[🔗 LinkedIn ](https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BS9rD6mPIQ%2BGOrN0u8kGICw%3D%3D)  | 
+[🔗 LinkedIn ](https://www.linkedin.com/in/sivanandini-saravanakumar-313287259/)  | 
 [🔗 GitHub ](https://github.com/Sivanandinisaravanakumar)
  
