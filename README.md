@@ -97,7 +97,7 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 3. **Install dependencies**
 
-   pip install flask numpy scikit-learn firebase-admin
+   *pip install flask numpy scikit-learn firebase-admin*
 
 4. **Set up Firebase Authentication**
    
@@ -119,11 +119,11 @@ AI-Powered-Loan-Eligibility-Advisor/
 
    Create a .env file:
 
-   GEMINI_API_KEY=YOUR_API_KEY_HERE
+     *GEMINI_API_KEY=YOUR_API_KEY_HERE*
 
 7. **Run the application**
    
-   python Flask_app.py
+    *python Flask_app.py*
 
 8. **Open your browser and visit:**
    
@@ -137,27 +137,27 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 The ML model (model.pkl) is trained in:
 
-  Eligibility Prediction.ipynb
+   *Eligibility Prediction.ipynb*
 
 Steps Performed:
 
-Data cleaning
+  Data cleaning
 
-Handling missing values
+  Handling missing values
 
-Encoding categorical variables
+  Encoding categorical variables
 
-Log-transforming skewed columns
+  Log-transforming skewed columns
 
-Training Decision Tree model
+  Training Decision Tree model
 
-Saving model with pickle
+  Saving model with pickle
 
 Used in:
 
-✔ Loan Prediction Form
+  ✔ Loan Prediction Form
 
-✔ Smart Chatbot Advisor
+  ✔ Smart Chatbot Advisor
 
 ### 🏛️ System Architecture
 
