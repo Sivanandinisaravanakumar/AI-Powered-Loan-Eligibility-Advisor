@@ -141,17 +141,17 @@ The ML model (model.pkl) is trained in:
 
 Steps Performed:
 
-  Data cleaning
+  1. Data cleaning
 
-  Handling missing values
+  2. Handling missing values
 
-  Encoding categorical variables
+  3. Encoding categorical variables
 
-  Log-transforming skewed columns
+  4. Log-transforming skewed columns
 
-  Training Decision Tree model
+  5. Training Decision Tree model
 
-  Saving model with pickle
+  6. Saving model with pickle
 
 Used in:
 
