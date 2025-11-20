@@ -4,7 +4,6 @@
 
 ![Project Banner](https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor/blob/main/static/loann.png)  
 
-
 ---
 
 ## 🚀 Overview
@@ -78,7 +77,7 @@ AI-Powered-Loan-Eligibility-Advisor/
 └── requirements.txt # Python dependencies
 
 
-> 💡 **Note**: `serviceAccountKey.json` is intentionally excluded from version control for security. Developers must generate their own from the Firebase Console.
+> 💡 **Note**: *`firebase-adminsdk.json` is intentionally excluded from version control for security. Developers must generate their own from the Firebase Console.*
 
 ---
 
@@ -104,7 +103,7 @@ AI-Powered-Loan-Eligibility-Advisor/
    Go to Firebase Console
    Create a new project or select existing
    Enable Email/Password sign-in method
-   Download serviceAccountKey.json from Project Settings > Service Accounts
+   Download firebase-adminsdk.json from Project Settings > Service Accounts
    Place it in the project root folder (do NOT commit to GitHub)
 
 4. **Run the application**
@@ -112,11 +111,11 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 
 5. **Open your browser and visit:**
-http://localhost:5000
+   [http://localhost:5000](http://127.0.0.1:5000)
 
 6. **Register a new account via the "Sign Up"**
    
-🧪 **# How It Works**
+🧪 **How It Works**
    1.User logs in via Firebase authentication.
    2.Navigates to “Prediction” or “Chatbot”.
    3.Prediction Form: Enters financial details → model predicts Yes/No.
@@ -124,7 +123,7 @@ http://localhost:5000
    5.For eligible applicants: Gets document checklist and timeline.
    6.For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
    
-📊 **Sample Output**
+### 📊 Sample Output
 
 ✅ **Eligible Result:**
 🎉 You are ELIGIBLE for the Loan!
@@ -133,7 +132,7 @@ http://localhost:5000
   - Submit via bank portal
   - Estimated disbursement: 10–15 business days
   
-💡 Tip: Maintain credit score above 750 during this process.
+💡 *Tip: Maintain credit score above 750 during this process.*
 
 ❌ **Not Eligible Result:**
 ❌ You are NOT eligible for the loan.
@@ -142,12 +141,13 @@ http://localhost:5000
   - Increase combined income to ₹35,000+
   - Improve credit score from 620 to 700+ by paying bills on time
   - Reduce loan amount to ₹4.5L or below
-💡 Try: Apply for a personal loan or consider a co-applicant
+    
+💡 *Try: Apply for a personal loan or consider a co-applicant*
 
-📜 **License**
+### 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
-👥 **Author**
+### 👥 Author
 Sivanandini Saravanakumar
 AI Intern | Infosys Springboard
 📧 sivanandini.sk@gmail.com
