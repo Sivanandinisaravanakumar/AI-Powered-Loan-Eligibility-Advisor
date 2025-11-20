@@ -1,180 +1,155 @@
-# **🏦 AI-Powered Loan Eligibility Advisor**
+# 🏦 AI-Powered Loan Eligibility Advisor
 
-Empowering smarter financial decisions with artificial intelligence
+> *Empowering smarter financial decisions with artificial intelligence.*
 
-An end-to-end ML-powered web application that predicts loan eligibility, guides users through a smart chatbot, and ensures secure authentication — built as part of my AI Internship Project at Infosys Springboard.
+![Project Banner](https://via.placeholder.com/1200x400/4b79a1/ffffff?text=AI+Loan+Eligibility+Advisor)  
+*(Replace with a screenshot of your app or system architecture diagram)*
 
-**🚀 Overview**
+---
 
-AI-Powered Loan Eligibility Advisor is an intelligent machine learning system that predicts whether a loan applicant is eligible based on key financial and demographic factors. It uses logistic regression, decision trees, and an interactive chatbot to provide actionable advice — even for rejected applications.
+## 🚀 Overview
 
-This project includes:
-✔ A Flask-based responsive web interface
-✔ ML model trained on a rich financial dataset
-✔ Firebase-secured login & registration
-✔ Smart chatbot guidance for next-step recommendations
+**AI-Powered Loan Eligibility Advisor** is an intelligent machine learning-based system designed to predict an applicant’s loan approval eligibility using key financial and personal information — including income, credit history, education, employment status, and property area. The project leverages AI to assist banks and financial institutions in automating loan decisions with improved accuracy and fairness.
 
-Designed to support real-world bank workflows with accuracy, transparency, and fairness.
+Built as part of my **AI Internship Project at Infosys Springboard**, this end-to-end solution combines a Flask web interface, a trained ML model, interactive chatbot guidance, and secure user authentication — delivering a complete, production-ready tool for real-world lending scenarios.
 
-✨ Key Features
-📊 AI-Powered Prediction
+---
 
-Predicts loan approval using 14+ input features via Logistic Regression & Decision Tree models.
+## ✨ Key Features
 
-🤖 Smart Chatbot
+| Feature | Description |
+|--------|-------------|
+| **📊 AI-Powered Prediction** | Uses Logistic Regression & Decision Tree models to analyze 14+ features for accurate approval/rejection predictions. |
+| **🤖 Smart Chatbot** | Engages users in natural language to explain results, provide improvement tips, and guide them through the process — even for rejected applications. |
+| **🔐 Secure Authentication** | Firebase-powered login and registration with session management. |
+| **📈 Actionable Insights** | Provides personalized next steps for both eligible and ineligible applicants — turning predictions into actionable financial advice. |
+| **🌐 Web-Based Interface** | Clean, responsive UI built with Flask, HTML, CSS, and JavaScript — accessible from any device. |
 
-Interactive assistant that:
+---
 
-Collects user data through 11 questions
+## 🛠️ Tech Stack
 
-Explains eligibility results
+| Layer | Technology |
+|-------|------------|
+| **Backend** | Python, Flask |
+| **ML Model** | Scikit-learn (Logistic Regression, Decision Trees) |
+| **Frontend** | HTML5, CSS3, JavaScript |
+| **Authentication** | Firebase Authentication (Email/Password) |
+| **Data** | `train.csv`, `test.csv` (Kaggle-style dataset) |
+| **Model Persistence** | Pickle (`model.pkl`) |
+| **Deployment** | Local Server (Flask), Ready for Cloud |
 
-Suggests financial improvements
+---
 
-Provides document checklists & next steps
+## 📂 Project Structure
 
-🔐 Secure Authentication
-
-Login & registration powered by Firebase Authentication, with email-password sign-in.
-
-📈 Actionable Insights
-
-Gives personalized advice for both:
-
-Eligible users → documentation, timelines
-
-Ineligible users → credit score, income, property area improvements
-
-🌐 Responsive Web UI
-
-Built using Flask + HTML + CSS + JavaScript.
-
-🛠️ Tech Stack
-Layer	Technologies
-Backend	Python, Flask
-Machine Learning	Scikit-learn (Logistic Regression, Decision Tree)
-Frontend	HTML5, CSS3, JavaScript
-Authentication	Firebase Authentication
-Data	train.csv, test.csv (Kaggle-style dataset)
-Model Persistence	Pickle (model.pkl)
-Deployment	Local Flask server (cloud-ready)
-📂 Project Structure
 AI-Powered-Loan-Eligibility-Advisor/
-│── Flask_app.py                # Main application logic
-│── model.pkl                   # Trained ML model
-│── train.csv                   # Training dataset
-│── test.csv                    # Test dataset
-│── loan.png                    # Project activity image
-│── system_architecture.png     # System architecture diagram
-│── chatbot.py                  # Chatbot module (optional)
-│── Streamlit_app.py            # Streamlit version
-│── Streamlitbasics.py          # Utilities for Streamlit
-│── Eligibility Prediction.ipynb# ML training notebook
 │
-├── static/                     # CSS, JS, images
-├── templates/                  # HTML templates
-│   ├── home.html
-│   ├── login_firebase.html
-│   ├── register_firebase.html
-│   ├── predictpage.html
-│   ├── prediction.html
-│   ├── chatbot.html
-│   └── about.html
+├── Flask_app.py # Main application logic and routes
+├── model.pkl # Trained ML model (saved via pickle)
+├── train.csv # Training dataset
+├── test.csv # Testing dataset
+├── loan.png # Project activity flow image
+├── system_architecture.png # System architecture diagram
 │
-├── Agile_Doc.xlsx              # Agile sprint planning
-├── Defect_Tracker.xlsx         # Bug tracking sheet
-├── Unit_Test_Plan.xlsx         # Testing documentation
+├── pycache/ # Python cache (auto-generated)
+├── static/ # Static assets (CSS, JS, images)
+├── templates/ # HTML templates
+│ ├── home.html # Landing page (after login)
+│ ├── login_firebase.html # Firebase-authenticated login
+│ ├── register_firebase.html # User registration form
+│ ├── predictpage.html # Loan application form
+│ ├── prediction.html # Prediction result display
+│ ├── chatbot.html # Interactive AI assistant
+│ └── about.html # Project details
 │
-├── .gitignore                  # Excludes private keys
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project documentation
+├── chatbot.py # Chatbot logic (if separate)
+├── Streamlit_app.py # Streamlit version (if applicable)
+├── Streamlitbasics.py # Streamlit utilities
+├── Eligibility Prediction.ipynb # Jupyter notebook for model training
+│
+├── Agile_Doc.xlsx # Agile documentation
+├── Defect_Tracker.xlsx # Defect tracking sheet
+├── Unit_Test_Plan.xlsx # Unit test plan
+├── Project Activity.png # Project activity flow
+│
+├── .gitignore # Ignores sensitive files (e.g., serviceAccountKey.json)
+├── README.md # This file
+└── requirements.txt # Python dependencies
 
 
-🔐 Note: firebase-adminsdk.json must be generated manually from the Firebase Console.
-It is intentionally excluded from GitHub for security.
+> 💡 **Note**: `serviceAccountKey.json` is intentionally excluded from version control for security. Developers must generate their own from the Firebase Console.
 
-📥 Installation & Setup
-Prerequisites
+---
 
-Python ≥ 3.8
+## 📥 Installation & Setup
 
-Git
+### Prerequisites
+- Python 3.8+
+- Git
 
-Steps
-1️⃣ Clone the repository
-git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
-cd AI-Powered-Loan-Eligibility-Advisor
+### Steps
 
-2️⃣ Install dependencies
-pip install flask numpy scikit-learn firebase-admin
+1. **Clone the repository**
+   
+   git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
+   cd AI-Powered-Loan-Eligibility-Advisor
 
-3️⃣ Configure Firebase Authentication
+2. **Install dependencies**
 
-Go to Firebase Console → Project Settings → Service Accounts
+   pip install flask numpy scikit-learn firebase-admin
 
-Generate a new serviceAccountKey.json
+3. **Set up Firebase Authentication**
+   
+   Go to Firebase Console
+   Create a new project or select existing
+   Enable Email/Password sign-in method
+   Download serviceAccountKey.json from Project Settings > Service Accounts
+   Place it in the project root folder (do NOT commit to GitHub)
 
-Place it in the project root
-
-Enable Email/Password authentication
-
-4️⃣ Run the application
-python Flask_app.py
+4. **Run the application**
+   python Flask_app.py
 
 
-Visit: http://127.0.0.1:5000
+5. **Open your browser and visit:**
+http://localhost:5000
 
-🧪 How It Works
+6. **Register a new account via the "Sign Up"**
+   
+🧪 **# How It Works**
+   1.User logs in via Firebase authentication.
+   2.Navigates to “Prediction” or “Chatbot”.
+   3.Prediction Form: Enters financial details → model predicts Yes/No.
+   4.Chatbot: Asks 11 questions → returns personalized eligibility result + tailored advice.
+   5.For eligible applicants: Gets document checklist and timeline.
+   6.For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
+   
+📊 **Sample Output**
 
-User logs in or registers through Firebase.
+✅ **Eligible Result:**
+🎉 You are ELIGIBLE for the Loan!
+ Next Steps: 
+  - Prepare ID, Address, and Income Proof
+  - Submit via bank portal
+  - Estimated disbursement: 10–15 business days
+  
+💡 Tip: Maintain credit score above 750 during this process.
 
-Navigates to the Prediction page or Chatbot.
+❌ **Not Eligible Result:**
+❌ You are NOT eligible for the loan.
+ Improvement Plan: 
 
-Fills out a detailed loan form → ML model predicts eligibility.
+  - Increase combined income to ₹35,000+
+  - Improve credit score from 620 to 700+ by paying bills on time
+  - Reduce loan amount to ₹4.5L or below
+💡 Try: Apply for a personal loan or consider a co-applicant
 
-Chatbot asks 11 questions → provides tailored advice.
+📜 **License**
+This project is licensed under the MIT License — see the LICENSE file for details.
 
-Users get:
-
-Eligible → documentation checklist + timeline
-
-Not eligible → income/credit improvement plan
-
-📊 Sample Outputs
-✅ Eligible Result
-
-🎉 You are ELIGIBLE for the loan!
-
-Next Steps:
-
-Prepare ID, Address, Income proof
-
-Submit documents via bank portal
-
-Expected disbursement: 10–15 business days
-
-Maintain credit score > 750
-
-❌ Not Eligible Result
-
-You are NOT eligible for the loan.
-
-Improvement Plan:
-
-Increase income to ₹35,000+
-
-Improve credit score from 620 → 700+
-
-Reduce loan amount to ₹4.5L or below
-
-Consider a co-applicant or alternative loan types
-
-📜 License
-
-Licensed under the MIT License. See LICENSE for details.
-
-👥 Author
-
+👥 **Author**
 Sivanandini Saravanakumar
 AI Intern | Infosys Springboard
 📧 sivanandini.sk@gmail.com
+🔗 LinkedIn | GitHub
+
