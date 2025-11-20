@@ -91,14 +91,15 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 1. **Clone the repository**
    
-   >> git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
-   >> cd AI-Powered-Loan-Eligibility-Advisor
+    git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
+   
+    cd AI-Powered-Loan-Eligibility-Advisor
 
-2. **Install dependencies**
+3. **Install dependencies**
 
    pip install flask numpy scikit-learn firebase-admin
 
-3. **Set up Firebase Authentication**
+4. **Set up Firebase Authentication**
    
    Go to Firebase Console
    Create a new project or select existing
@@ -106,14 +107,14 @@ AI-Powered-Loan-Eligibility-Advisor/
    Download firebase-adminsdk.json from Project Settings > Service Accounts
    Place it in the project root folder (do NOT commit to GitHub)
 
-4. **Run the application**
+5. **Run the application**
+   
    python Flask_app.py
 
+6. **Open your browser and visit:**
+   (http://127.0.0.1:5000)
 
-5. **Open your browser and visit:**
-   [http://localhost:5000](http://127.0.0.1:5000)
-
-6. **Register a new account via the "Sign Up"**
+7. **Register a new account via the "Sign Up"**
    
 🧪 **How It Works**
    1.User logs in via Firebase authentication.
