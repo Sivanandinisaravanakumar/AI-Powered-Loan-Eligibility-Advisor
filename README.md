@@ -121,17 +121,17 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 ## 🧪 How It Works
 
-   1.User logs in via Firebase authentication.
+   1. User logs in via Firebase authentication.
    
-   2.Navigates to “Prediction” or “Chatbot”.
+   2. Navigates to “Prediction” or “Chatbot”.
    
-   3.Prediction Form: Enters financial details → model predicts Yes/No.
+   3. Prediction Form: Enters financial details → model predicts Yes/No.
    
-   4.Chatbot: Asks 11 questions → returns personalized eligibility result + tailored advice.
+   4. Chatbot: Asks 11 questions → returns personalized eligibility result + tailored advice.
    
-   5.For eligible applicants: Gets document checklist and timeline.
+   5. For eligible applicants: Gets document checklist and timeline.
    
-   6.For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
+   6. For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
    
 ---   
    
