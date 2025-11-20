@@ -112,17 +112,28 @@ AI-Powered-Loan-Eligibility-Advisor/
    python Flask_app.py
 
 6. **Open your browser and visit:**
+   
    (http://127.0.0.1:5000)
 
 7. **Register a new account via the "Sign Up"**
    
-🧪 **How It Works**
+---
+
+## 🧪 How It Works
+
    1.User logs in via Firebase authentication.
+   
    2.Navigates to “Prediction” or “Chatbot”.
+   
    3.Prediction Form: Enters financial details → model predicts Yes/No.
+   
    4.Chatbot: Asks 11 questions → returns personalized eligibility result + tailored advice.
+   
    5.For eligible applicants: Gets document checklist and timeline.
+   
    6.For ineligible applicants: Gets step-by-step improvement plan (credit score, income, etc.).
+   
+---   
    
 ### 📊 Sample Output
 
@@ -135,6 +146,7 @@ AI-Powered-Loan-Eligibility-Advisor/
   
 💡 *Tip: Maintain credit score above 750 during this process.*
 
+
 ❌ **Not Eligible Result:**
 ❌ You are NOT eligible for the loan.
  Improvement Plan: 
@@ -145,8 +157,12 @@ AI-Powered-Loan-Eligibility-Advisor/
     
 💡 *Try: Apply for a personal loan or consider a co-applicant*
 
+---
+
 ### 📜 License
 This project is licensed under the MIT License — see the LICENSE file for details.
+
+---
 
 ### 👥 Author
 Sivanandini Saravanakumar
