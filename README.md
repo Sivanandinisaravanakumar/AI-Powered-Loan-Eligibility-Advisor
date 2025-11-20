@@ -159,6 +159,8 @@ Used in:
 
   ✔ Smart Chatbot Advisor
 
+---
+
 ### 🏛️ System Architecture
 
 **Chatbot Flow**
