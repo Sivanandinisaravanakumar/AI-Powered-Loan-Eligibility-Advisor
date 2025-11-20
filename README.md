@@ -152,5 +152,5 @@ This project is licensed under the MIT License — see the LICENSE file for deta
 Sivanandini Saravanakumar
 AI Intern | Infosys Springboard
 📧 sivanandini.sk@gmail.com
-🔗 LinkedIn | GitHub
-
+[🔗 LinkedIn ](https://www.linkedin.com/public-profile/settings?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_self_edit_contact-info%3BS9rD6mPIQ%2BGOrN0u8kGICw%3D%3D) |  [🔗 GitHub ](https://github.com/Sivanandinisaravanakumar)
+ 
