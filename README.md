@@ -92,8 +92,8 @@ AI-Powered-Loan-Eligibility-Advisor/
 
 1. **Clone the repository**
    
-   git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
-   cd AI-Powered-Loan-Eligibility-Advisor
+   >> git clone https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor.git
+   >> cd AI-Powered-Loan-Eligibility-Advisor
 
 2. **Install dependencies**
 
