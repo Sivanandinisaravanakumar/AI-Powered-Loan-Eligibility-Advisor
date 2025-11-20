@@ -107,15 +107,25 @@ AI-Powered-Loan-Eligibility-Advisor/
    Download firebase-adminsdk.json from Project Settings > Service Accounts
    Place it in the project root folder (do NOT commit to GitHub)
 
-5. **Run the application**
+5. **Google Gemini API Setup**
+
+   Open Google AI Studio
+
+   Generate an API Key
+
+   Create a .env file:
+
+   GEMINI_API_KEY=YOUR_API_KEY_HERE
+
+6. **Run the application**
    
    python Flask_app.py
 
-6. **Open your browser and visit:**
+7. **Open your browser and visit:**
    
    (http://127.0.0.1:5000)
 
-7. **Register a new account via the "Sign Up"**
+8. **Register a new account via the "Sign Up"**
    
 ---
 
