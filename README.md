@@ -2,7 +2,7 @@
 
 > *Empowering smarter financial decisions with artificial intelligence.*
 
-![Project Banner](https://via.placeholder.com/1200x400/4b79a1/ffffff?text=AI+Loan+Eligibility+Advisor)  
+![Project Banner]("C:\Users\sivan\Downloads\AI-Powered-Loan-Eligibility-Advisor\static\loann.png")  
 *(Replace with a screenshot of your app or system architecture diagram)*
 
 ---
