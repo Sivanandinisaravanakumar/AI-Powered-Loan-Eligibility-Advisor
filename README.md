@@ -4,7 +4,7 @@ Empowering smarter financial decisions with artificial intelligence
 
 An end-to-end ML-powered web application that predicts loan eligibility, guides users through a smart chatbot, and ensures secure authentication — built as part of my AI Internship Project at Infosys Springboard.
 
-**🚀 Overview
+**🚀 Overview**
 
 AI-Powered Loan Eligibility Advisor is an intelligent machine learning system that predicts whether a loan applicant is eligible based on key financial and demographic factors. It uses logistic regression, decision trees, and an interactive chatbot to provide actionable advice — even for rejected applications.
 
