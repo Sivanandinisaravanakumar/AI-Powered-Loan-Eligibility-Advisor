@@ -2,8 +2,8 @@
 
 > *Empowering smarter financial decisions with artificial intelligence.*
 
-![Project Banner]("C:\Users\sivan\Downloads\AI-Powered-Loan-Eligibility-Advisor\static\loann.png")  
-*(Replace with a screenshot of your app or system architecture diagram)*
+![Project Banner](https://github.com/Sivanandinisaravanakumar/AI-Powered-Loan-Eligibility-Advisor/blob/main/static/loann.png)  
+
 
 ---
 
